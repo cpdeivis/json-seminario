@@ -1,0 +1,157 @@
+{
+  "type": "object",
+  "required": [],
+  "properties": {
+    "topicMap": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "topic": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "instanceOf": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                  "topicRef": {
+                    "type": "object",
+                    "required": [],
+                    "properties": {
+                      "href": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "baseName": {"anyOf":[
+                {
+                  "type": "object",
+                  "required": [],
+                  "properties": {
+                    "baseNameString": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [],
+                    "properties": {
+                      "baseNameString": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              ]},
+              "occurrence": { "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [],
+                    "properties": {
+                      "scope": {
+                        "type": "object",
+                        "required": [],
+                        "properties": {
+                          "topicRef": {
+                            "type": "object",
+                            "required": [],
+                            "properties": {
+                              "href": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "resourceData": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "required": [],
+                  "properties": {
+                    "scope": {
+                      "type": "object",
+                      "required": [],
+                      "properties": {
+                        "topicRef": {
+                          "type": "object",
+                          "required": [],
+                          "properties": {
+                            "href": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "resourceData": {
+                      "type": "string"
+                    }
+                  }
+                }
+              ]}
+            }
+          }
+        },
+        "association": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [],
+            "properties": {
+              "instanceOf": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                  "topicRef": {
+                    "type": "object",
+                    "required": [],
+                    "properties": {
+                      "href": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "member": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [],
+                  "properties": {
+                    "topicRef": {
+                      "type": "object",
+                      "required": [],
+                      "properties": {
+                        "href": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

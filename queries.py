@@ -33,5 +33,6 @@ def main():
                            "@..occurrence['#elencoApoio' in @..href].resourceData in @]"
                            "].id")
 
+
 if __name__ == '__main__':
     main()
