@@ -3,7 +3,7 @@ from objectpath import Tree
 
 
 def main():
-    with open("GioMovies.json", "r") as file:
+    with open("files/GioMovies.json", "r") as file:
         data = json.load(file)
     giomovies = Tree(data)
 
