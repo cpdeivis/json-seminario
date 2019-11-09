@@ -1,0 +1,17 @@
+{% extends "template.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <h3>Filmes</h3>
+                <div class="collection with-header">
+                    {% for item in data %}
+                        <a href="{{ url_for('movies.movie', id=item.id) }}"
+                           class="collection-item">{{ item.baseName.baseNameString }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
