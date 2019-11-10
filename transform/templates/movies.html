@@ -1,0 +1,27 @@
+{% extends "template.html" %}
+{% block title %}
+    {{ data.baseName.baseNameString }}
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <h3>{{ data.baseName.baseNameString }}</h3>
+                {% for scope, ocr in data.occurrence | groupby('scope') %}
+                    <h4>{{ scope }}</h4>
+                    {% for oc in ocr %}
+                        <p>{{ oc.resourceData }}</p>
+                    {% endfor %}
+                {% endfor %}
+                {% for instanceOf, asoc in asoc | groupby('instanceOf') %}
+                    <h4>{{ instanceOf }}</h4>
+                    {% for a in asoc %}
+                        <p>
+                            <a href="{{ url_for('movies.association', href= a.member['href']) }}">{{ a.member['val'] }}</a>
+                        </p>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

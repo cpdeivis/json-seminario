@@ -1,16 +1,16 @@
 {% extends "template.html" %}
 {% block title %}
-    Filmes
+    {{ data.baseName.baseNameString }}
 {% endblock %}
 {% block content %}
     <div class="container">
         <div class="row">
             <div class="col s12">
-                <h3>Filmes</h3>
+                <h3>{{ data.baseName.baseNameString }}</h3>
                 <div class="collection with-header">
-                    {% for item in data %}
-                        <a href="{{ url_for('movies.movies', id=item.id) }}"
-                           class="collection-item">{{ item.baseName.baseNameString }}</a>
+                    {% for a in asoc %}
+                        <a href="{{ url_for('movies.movies', id = a.member['href']) }}"
+                           class="collection-item">{{ a.member['val'] }}</a>
                     {% endfor %}
                 </div>
             </div>
