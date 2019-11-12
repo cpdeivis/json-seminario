@@ -14,7 +14,7 @@ def getTree():
 
 
 def getBaseName(id, tree):
-    querie = tree.execute('$..topic[@.id is "%s"]' % id.replace('#', '').replace(',', ''))
+    querie = tree.execute('$..topic[@.id is "%s"]' % id.replace('#', ''))
     data = list(querie)[0]
     if len(data['baseName']) > 1:
         return data['baseName'][0]['baseNameString']
@@ -53,7 +53,7 @@ def movies(id):
         for ass in association:
             ass['instanceOf'] = getBaseName(ass['instanceOf']['topicRef']['href'], gio)
             member = list(filter(lambda x: x['topicRef']['href'] != ('#' + id), ass['member']))[0]
-            ass['member'] = {'href': member['topicRef']['href'].replace('#', '').replace(',', ''),
+            ass['member'] = {'href': member['topicRef']['href'].replace('#', ''),
                              'val': getBaseName(member['topicRef']['href'], gio)}
         return render_template('movies.html', data=data, asoc=association)
 
@@ -74,7 +74,7 @@ def association(href):
         for ass in association:
             ass['instanceOf'] = getBaseName(ass['instanceOf']['topicRef']['href'], gio)
             member = list(filter(lambda x: x['topicRef']['href'] != ('#' + href), ass['member']))[0]
-            ass['member'] = {'href': member['topicRef']['href'].replace('#', '').replace(',', ''),
+            ass['member'] = {'href': member['topicRef']['href'].replace('#', ''),
                              'val': getBaseName(member['topicRef']['href'], gio)}
 
         return render_template("association.html", data=data, asoc=association)

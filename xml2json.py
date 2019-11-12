@@ -1,3 +1,4 @@
+import os
 import json
 from lxml import etree
 from jsonschema import validate
@@ -18,7 +19,10 @@ def main():
 
     try:
         validate(instance=data, schema=schema)
-        with open("GioMovies.json", "w") as file:
+        if os.path.exists("files/GioMovies.json"):
+            os.remove("files/GioMovies.json")
+
+        with open("files/GioMovies.json", "w") as file:
             json.dump(data, file)
     except:
         print("Algo deu errado")
