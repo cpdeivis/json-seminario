@@ -3,7 +3,7 @@ Seminário da disciplina de Linguagens de Marcação Extensível - ELC1092 de 20
 Feito por: **Deivis Costa Pereira** e **William Felipe de Almeida Borges**.
 
 ## Pontos a serem abrangidos
-* Transformar o [arquivo de filmes em XML](../blob/master/files/GioMovies.xtm) para JSON, sem perder conteúdo;
+* Transformar o [arquivo de filmes em XML](blob/master/files/GioMovies.xtm) para JSON, sem perder conteúdo;
 
 * Validar o JSON criado com [JSON Schema](..blob/master/files/GioSchema.json) correspondente;
 
