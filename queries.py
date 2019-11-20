@@ -1,5 +1,6 @@
 import json
 import time
+import re
 from objectpath import Tree
 
 
@@ -72,6 +73,23 @@ def main():
             q6.append(x['id'])
     print("6: Sinopse com ator: %s" % q6)
     print("em ", time.time() - clock, " segundos\n")
+
+    q3 = []
+
+    benglish = lambda ls: type(ls) == list and len(list(filter(lambda oc: 'scope' in oc and 'topicRef' in oc['scope'] and
+                                                                       oc['scope']['topicRef']['href'] == '#ingles',
+                                                            ls))) > 0
+    english = lambda ls: \
+        list(map(lambda x: x['resourceData'], list(filter(lambda oc: ('scope' in oc and 'topicRef' in oc['scope'] and
+                                                                      oc['scope']['topicRef']['href'] == '#ingles'),
+                                                          ls))))[0]
+    clock = time.time()
+    for x in list(filter(lambda y: 'occurrence' in y and bsino(y['occurrence']), data['topicMap']['topic'])):
+        if re.search(r'\b(especial)\b', sino(x['occurrence'])) and benglish(x['occurrence']):
+            q3.append(english(x['occurrence']))
+    print("3: Sinopse com 'especial': %s" % q3)
+    print("em ", time.time() - clock, " segundos\n")
+
 
 
 if __name__ == '__main__':
