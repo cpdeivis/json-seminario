@@ -3,9 +3,11 @@ Seminário da disciplina de Linguagens de Marcação Extensível - ELC1092 de 20
 Feito por: **Deivis Costa Pereira** e **William Felipe de Almeida Borges**.
 
 ## Pontos a serem abrangidos
-* Transformar o [arquivo de filmes em XML](../master/files/GioMovies.xtm) para JSON, sem perder conteúdo;
+* Transformar o [arquivo de filmes em XML](../master/files/GioMovies.xtm) para JSON, sem perder conteúdo. E validar o JSON criado com [JSON Schema](../master/files/GioSchema.json) correspondente;
 
-* Validar o JSON criado com [JSON Schema](../master/files/GioSchema.json) correspondente;
+    ```bash
+    $ python xml2json.py
+    ```
 
 * [Aplicar consultas em JSON](../master/queries.py):
     * Quais são os tipos de gênero de filmes, sem repetição?
@@ -16,9 +18,17 @@ Feito por: **Deivis Costa Pereira** e **William Felipe de Almeida Borges**.
     * Quais são os ID dos filmes que tem o nome de algum membro do elenco citado na
 sinopse?
 
+    ```bash
+    $ python queries.py
+    ```
+
 * [Aplicar transformações em JSON](../master/transform/):
     * Deve se construir um código que gere um conjunto de páginas HTML para cada nodo do grafo, onde nesta página possui a informação de cada tópico (seus nomes e ocorrências), além de links para todos os tópicos que estão associados com ele. A página inicial terá a apresentação do portal e o link para todos os filmes.
-
+    
+    ```bash
+    $ cd transform
+    $ python main.py
+    ```
 ## Configurando
 ### Pré-requisitos
 
@@ -34,33 +44,33 @@ $ sudo apt-get install python3.6
 ```
 Veja a versão do Python com o comando
 ```bash
-python --version
+$ python --version
 ```
 Em seguida, instale o **pip**:
 ```bash
-wget https://bootstrap.pypa.io/get-pip.py
-sudo python3.6 get-pip.py
+$ wget https://bootstrap.pypa.io/get-pip.py
+$ sudo python3.6 get-pip.py
 ```
 E então, o **virtualenv**:
 ```bash
-sudo pip3.6 install virtualenv
+$ sudo pip3.6 install virtualenv
 ```
 Clone o repositório:
 ```bash
-git clone https://github.com/oscaruno/json-seminario
+$ git clone https://github.com/oscaruno/json-seminario
 ``` 
 Crie o ambiente virtual dentro do diretório do repositório:
 ```bash
-cd json-seminario
-virtualenv venv -p python3.6
+$ cd json-seminario
+$ virtualenv venv -p python3.6
 ```
 Ative o ambiente virtual com o seguinte comando: 
 ```bash
-source venv/bin/activate
+$ source venv/bin/activate
 ``` 
 O nome do ambiente virtual deverá aparecer antes da CLI.
 
 Instale os requisitos:
 ```bash
-pip3.6 install -r requirements.txt
+$ pip3.6 install -r requirements.txt
 ```
